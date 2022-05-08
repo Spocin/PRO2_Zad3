@@ -38,12 +38,47 @@ namespace TestNinjaTests
             var result = BookingHelper.OverlappingBookingsExist(new Booking
             {
                 Id = 1,
-                ArrivalDate = new DateTime(2022, 1, 10, 14, 0, 0),
-                DepartureDate = new DateTime(2022, 1, 12, 14, 0, 0),
+                ArrivalDate = Before(_existingBooking.ArrivalDate, 10),
+                DepartureDate = Before(_existingBooking.ArrivalDate, 1)
             }, _repository.Object);
 
             //Assert
             Assert.That(result, Is.Empty);
+        }
+
+        [Test]
+        public void BookingStartsBeforeFinishedInTheMiddleOfAnExistingListingBooking_ReturnEmptyString()
+        {
+            //Act
+            var result = BookingHelper.OverlappingBookingsExist(new Booking
+            {
+                Id = 1,
+                ArrivalDate = Before(_existingBooking.ArrivalDate, 10),
+                DepartureDate = After(_existingBooking.ArrivalDate, 1)
+            }, _repository.Object);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(_existingBooking.Reference));
+        }
+ 
+        private DateTime ArriveOn(int year, int month, int day)
+        {
+            return new DateTime(year, month, day, 14, 0, 0);
+        }
+
+        private DateTime DepartOn(int year, int month, int day)
+        {
+            return new DateTime(year, month, day, 14, 0, 0);
+        }
+
+        private DateTime Before(DateTime dateTime, int days = 1)
+        {
+            return dateTime.AddDays(-days);
+        }
+
+        private DateTime After(DateTime dateTime, int days = 1)
+        {
+            return dateTime.AddDays(days);
         }
     }
 }

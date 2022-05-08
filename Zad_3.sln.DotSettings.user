@@ -2,5 +2,6 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=46d415d5_002D77ef_002D4bd8_002Da871_002D8b93ab29e23f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="BookingStartAndFinishedBeforeExistingBooking_ReturnEmptyString" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::5D94C134-4972-4EC4-BF69-9577CDD6AF5F::net5.0::TestNinjaTests.BookingHelperOverlappingBookingExistsTests.BookingStartAndFinishedBeforeExistingBooking_ReturnEmptyString&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::5D94C134-4972-4EC4-BF69-9577CDD6AF5F::net5.0::TestNinjaTests.BookingHelperOverlappingBookingExistsTests.BookingStartsBeforeFinishedInTheMiddleOfAnExistingListingBooking_ReturnEmptyString&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
